@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome in <b>Take care</b></title>
+  <link rel="stylesheet" href="/static/LoginPage.css">
+</head>
+<body>
+  <div class="background">
+    <form id="loginForm" class="form-container" method="post">
+      <h1>Welcome in <b id = "name">CareTaker</b></h1>
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <span class="toggle-password" onclick="togglePassword()">Show Password</span>
+      </div>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const togglePasswordBtn = document.querySelector(".toggle-password");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordBtn.textContent = "Hide Password";
+      } else {
+        passwordInput.type = "password";
+        togglePasswordBtn.textContent = "Show Password";
+      }
+    }
+
+// ---------------------
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      var formData = new FormData(this);
+
+      // Send form data using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/");
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.status === "error") {
+              alert(response.message);
+            } else {
+              window.location.href = "{{ url_for('dashboard') }}";
+            }
+          } else {
+            alert("An error occurred. Please try again later.");
+          }
+        }
+      };
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      var encodedData = new URLSearchParams(formData).toString();
+      xhr.send(encodedData);
+    });
+
+  </script>
+</body>
+</html>

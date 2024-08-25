@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Care Taker</title>
+    <style>
+        /* Add your CSS styles here */
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .patient-details {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-details-display {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .patient-details-form {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .patient-details-form label {
+            margin-bottom: 10px;
+        }
+
+        .patient-details-form input,
+        .patient-details-form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .patient-details-form button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .diagnosis-history {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .doctor-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .doctor-card img {
+            border-radius: 50%;
+            height: 100px;
+            margin-bottom: 10px;
+            width: 100px;
+        }
+
+        .doctor-card h3 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .doctor-card p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .doctor-card button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .doctor-card {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .doctor-card {
+                flex-basis: 100%;
+            }
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            border-top: 1px solid #dddddd;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a {
+            margin-left: 10px;
+        }
+
+        .social-links img {
+            height: 30px;
+            width: 30px;
+        }
+
+        #edit-patient-details-button {
+            width: 8%;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="header">
+    <h1>Care Taker</h1>
+    <nav>
+        <ul>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/diagnosis">Diagnosis</a></li> <!-- Add this line -->
+        </ul>
+    </nav>
+</div>
+<div class="patient-details">
+    <div class="patient-details-display">
+        <h2>Patient Details</h2>
+        <p><strong>Name:</strong> null</p>
+        <p><strong>Age:</strong> null</p>
+        <p><strong>Mobile No:</strong> null</p>
+        <p><strong>Gender:</strong> null</p>
+        <!-- Add more fields as needed -->
+        <button id="edit-patient-details-button">Edit Details</button>
+    </div>
+    <div class="patient-details-form" id="patient-details-form">
+        <form id="patient-form" action="/save_details" method="POST">
+            <!-- Add name attributes to the input fields -->
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" max="120" required>
+        
+            <label for="mobile">Mobile No:</label>
+            <input type="tel" id="mobile" name="mobile_no" pattern="[0-9]{10}" required>
+        
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+        
+            <button type="submit">Save</button>
+        </form>
+        
+    </div>
+</div>
+<div class="diagnosis-history">
+    <h2>Diagnosis History</h2>
+    <p>Previous diagnosis records will be displayed here.</p>
+    <!-- Fetch records from the database and display them here -->
+</div>
+<div class="doctor-cards">
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-vikas-kathuria-neurosurgeon-gurgaon-af65dd08-be9f-4364-ad16-c24a73ce2cf7.jpg?i_type=t_70x70" alt="Dr. Smith">
+        <h3>Dr. Vikas Kathuria</h3>
+        <p>MCh - Neuro Surgery, MBBS, MS - General Surgery</p>
+        <p>Experience: 24 Years Experience Overall  (11 years as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/vikas-kathuria-neurosurgeon?practice_id=1158037&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank" >Book Appointment</a></button>
+    </div>
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-pallavi-mittal-laparoscopic-surgeon-obs-gyn-rohtak-2f1abddd-f5e2-4280-afe4-3dfa320115af.jpg?i_type=t_70x70" alt="Dr. Johnson">
+        <h3>Dr. Pallavi Mittal</h3>
+        <p>MBBS, MS - Obstetrics & Gynaecology</p>
+        <p>Experience: 17 Years Experience Overall  (10 years as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/pallavi-mittal-gynecologist-obstetrician?practice_id=1403736&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank">Book Appointment</a></button>
+    </div>
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-somesh-virmani-pediatric-orthopedic-surgeon-gurgaon-eb76ab61-8c2c-4363-9912-c92c75fe552c.jpg?i_type=t_70x70" alt="Dr. Lee">
+        <h3>Dr. Somesh Virmani</h3>
+        <p>DNB - Orthopedics/Orthopedic Surgery, MNAMS - Orthopaedics, MBBS 
+            Specialist : - Orthopedic surgeon</p>
+        <p>Experience: 22 Years Experience Overall  (12 years as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/dr-somesh-virmani-orthopedist?practice_id=1163263&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank">Book Appointment</a></button>
+    </div>
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-manish-airan-implantologist-rohtak-e0610616-27e0-41de-be6c-d5c6f2010c6a.jpg?i_type=t_70x70" alt="Dr. Patel">
+        <h3>Dr. Manish Airan</h3>
+        <p>BDS, MDS - Prosthodontist And Crown Bridge Implantologist,
+            Specialist : - Prosthodontist</p>
+        <p>Experience: 13 Years Experience Overall  (10 years as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/manish-airan-dentist?practice_id=1134922&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank">Book Appointment</a></button>
+    </div>
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-virender-chauhan-gastroenterologist-rohtak-f91255a1-47f3-44c2-81b9-2cc9917b0e14.jpg?i_type=t_70x70">
+        <h3>Dr. Virender Chauhan</h3>
+        <p>MBBS, MD - General Medicine, DM - Gastroenterology 
+            Specialist : - Gastroenterologist</p>
+        <p>Experience: 14 Years Experience Overall  (1 year as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/virender-chauhan-gastroenterologist?practice_id=1140150&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank">Book Appointment</a></button>
+    </div>
+    <div class="doctor-card">
+        <img src="https://imagesx.practo.com/providers/dr-moni-tuteja-bhatia-geneticist-rohtak-8506f87c-4a4b-4b5d-8060-1ae78238f96f.jpg?i_type=t_70x70" alt="Dr. Gupta">
+        <h3>Dr. Moni Tuteja Bhatia</h3>
+        <p>MBBS, MD - Obstetrics & Gynaecology, DM - Medical 
+            Specialist : - Genetics Geneticist</p>
+        <p>Experience: 20 Years Experience Overall  (6 years as specialist)</p>
+        <button><a href="https://www.practo.com/rohtak/doctor/dr-moni-tuteja-bhatia-geneticist?practice_id=1140150&specialization=Doctor&referrer=doctor_listing&page_uid=9d462268-fd8c-4d29-8600-9cadf865ebde" target="_blank">Book Appointment</a></button>
+    </div>
+    <!-- https://www.practo.com/rohtak/doctors -->
+</div>
+<footer>
+    <p>&copy; 2024 CareTaker. All rights reserved.</p>
+    <div class="social-links">
+        <a href="#"><img src="https://via.placeholder.com/30x30/c7c7c7/000000?text=FB" alt="Facebook"></a>
+        <a href="#"><img src="https://via.placeholder.com/30x30/c7c7c7/000000?text=IG" alt="Instagram"></a>
+        <a href="#"><img src="https://via.placeholder.com/30x30/c7c7c7/000000?text=LI" alt="LinkedIn"></a>
+    </div>
+</footer>
+<script>
+
+    // 
+
+    fetch('/patient_details')
+        .then(response => response.json())
+        .then(data => {
+            // Display patient details on the page
+            document.querySelector('.patient-details-display p:nth-child(2)').innerHTML = `<strong>Name:</strong> ${data.full_name}`;
+            document.querySelector('.patient-details-display p:nth-child(3)').innerHTML = `<strong>Age:</strong> ${data.age}`;
+            document.querySelector('.patient-details-display p:nth-child(4)').innerHTML = `<strong>Mobile No:</strong> ${data.mobile_no}`;
+            document.querySelector('.patient-details-display p:nth-child(5)').innerHTML = `<strong>Gender:</strong> ${data.gender}`;
+        })
+        .catch(error => console.error('Error:', error));
+
+    // 
+
+    const editPatientDetailsButton = document.querySelector('#edit-patient-details-button');
+    const patientDetailsDisplay = document.querySelector('.patient-details-display');
+    const patientDetailsForm = document.querySelector('#patient-details-form');
+    const patientForm = document.querySelector('#patient-form');
+
+    editPatientDetailsButton.addEventListener('click', () => {
+        patientDetailsDisplay.style.display = 'none';
+        patientDetailsForm.style.display = 'block';
+    });
+
+    patientForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const age = document.querySelector('#age').value;
+        const mobile = document.querySelector('#mobile').value;
+        const gender = document.querySelector('#gender').value;
+        const address = document.querySelector('#address').value;
+
+        // Display form data in patient details display
+        document.querySelector('.patient-details-display').innerHTML = `
+            <h2>Patient Details</h2>
+            <p><strong>Age:</strong> ${age}</p>
+            <p><strong>Mobile No:</strong> ${mobile}</p>
+            <p><strong>Gender:</strong> ${gender}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <button id="edit-patient-details-button">Edit Details</button>
+        `;
+
+        // Hide form and show patient details display
+        patientDetailsDisplay.style.display = 'block';
+        patientDetailsForm.style.display = 'none';
+    });
+
+    document.getElementById('patient-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Validate form
+            var age = document.getElementById('age').value;
+            var mobile = document.getElementById('mobile').value;
+            var gender = document.getElementById('gender').value;
+            var address = document.getElementById('address').value;
+
+            if (age < 1 || age > 120) {
+                alert('Age must be between 1 and 120');
+                return;
+            }
+
+            if (mobile.length !== 10) {
+                alert('Mobile number must be 10 digits');
+                return;
+            }
+
+            // Send data to Python file
+            var form = new FormData();
+            form.append('age', age);
+            form.append('mobile_no', mobile);
+            form.append('gender', gender);
+            form.append('address', address);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/save_details', true);
+            xhr.send(form);
+        });
+
+</script>
+    
+</body>
+</html>
+

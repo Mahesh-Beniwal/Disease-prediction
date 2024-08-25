@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareTaker</title>
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .checkbox-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .checkbox-container label {
+            margin-left: 10px;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        header {
+        background-color: #4CAF50;
+        padding: 20px;
+        text-align: center;
+        }
+
+        h1 {
+        font-size: 2.5em;
+        color: #fff;
+        margin-bottom: 10px;
+        }
+
+        h2 {
+        font-size: 1.5em;
+        color: #fff;
+        margin: 0;
+        }
+        @media (min-width: 800px) {
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Start Diagnosis</h1>
+        <h2>Choose symptoms of the following</h2>
+      </header>
+    <div class="card-container">
+        <label class="card" for="checkbox1">
+            <input type="checkbox" id="checkbox1" name="checkbox1" style="display: none;" value="itching">
+            <img src="https://th.bing.com/th/id/OIP.wm-aVyOh3rxE1bo4ImQ3owAAAA?rs=1&pid=ImgDetMain" alt="Image 1">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox1-inner" name="checkbox1" value="itching">
+                <label for="checkbox1-inner">itching</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox2">
+            <input type="checkbox" id="checkbox2" name="checkbox2" style="display: none;" value="skin_rash">
+            <img src="https://aestheticdermatologymd.com/wp-content/uploads/2019/08/AdobeStock_119502501-1280x853.jpeg"
+                alt="Image 2">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox2-inner" name="checkbox2" value="skin_rash">
+                <label for="checkbox2-inner">skin_rash</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox3">
+            <input type="checkbox" id="checkbox3" name="checkbox3" style="display: none;" value="nodal_skin_eruptions">
+            <img src="https://images.theconversation.com/files/206734/original/file-20180216-131003-1a7s5jg.jpg?ixlib=rb-1.1.0&q=15&auto=format&w=754&h=566&fit=crop&dpr=3" alt="Image 3">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox3-inner" name="checkbox3" value="nodal_skin_eruptions">
+                <label for="checkbox3-inner">nodal_skin_eruptions</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox4">
+            <input type="checkbox" id="checkbox4" name="checkbox4" style="display: none;" value="continuous_sneezing">
+            <img src="https://www.medindia.net/patients/patientinfo/images/sneezing.jpg" alt="Image 4">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox4-inner" name="checkbox4" value="continuous_sneezing">
+                <label for="checkbox4-inner">continuous_sneezing</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox5">
+            <input type="checkbox" id="checkbox5" name="checkbox5" style="display: none;" value="shivering">
+            <img src="https://www.escapehunter.com/planning/img-coping-cold-001.jpg" alt="Image 5">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox5-inner" name="checkbox5" value="shivering">
+                <label for="checkbox5-inner">shivering</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox6">
+            <input type="checkbox" id="checkbox6" name="checkbox6" style="display: none;" value="https://www.escapehunter.com/planning/img-coping-cold-001.jpg">
+            <img src="https://th.bing.com/th/id/OIP.uoXuN6U_U76qxc6kcvRBdQAAAA?rs=1&pid=ImgDetMain" alt="Image 6">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox6-inner" name="checkbox6" value="chills">
+                <label for="checkbox6-inner">chills</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox7">
+            <input type="checkbox" id="checkbox7" name="checkbox7" style="display: none;" value="joint_pain">
+            <img src="https://th.bing.com/th/id/OIP.-f7BDpO0Ti-q-72wx1appwHaE8?rs=1&pid=ImgDetMain" alt="Image 7">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox7-inner" name="checkbox7" value="joint_pain">
+                <label for="checkbox7-inner">joint_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox8">
+            <input type="checkbox" id="checkbox8" name="checkbox8" style="display: none;" value="stomach_pain">
+            <img src="https://www.emergencyphysicians.org/siteassets/emphysicians/all-images/kwtg/stomach-ache3.jpg" alt="Image 8">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox8-inner" name="checkbox8" value="stomach_pain">
+                <label for="checkbox8-inner">stomach_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox9">
+            <input type="checkbox" id="checkbox9" name="checkbox9" style="display: none;" value="acidity">
+            <img src="https://dpuhospital.com/images/blogs/Acidity-blog.jpeg" alt="Image 9">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox9-inner" name="checkbox9" value="acidity">
+                <label for="checkbox9-inner">acidity</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox10">
+            <input type="checkbox" id="checkbox10" name="checkbox10" style="display: none;" value="ulcers_on_tongue">
+            <img src="https://www.nidirect.gov.uk/sites/default/files/styles/nigov_full_900_x2/public/images/A-Z_mouth-ulcer-1_22012020.jpg?itok=ZxcY0zwh" alt="Image 10">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox10-inner" name="checkbox10" value="ulcers_on_tongue">
+                <label for="checkbox10-inner">ulcers_on_tongue</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox11">
+            <input type="checkbox" id="checkbox11" name="checkbox11" style="display: none;" value="muscle_wasting">
+            <img src="https://th.bing.com/th/id/R.a98824eb9b9074160c0901f51df3ff11?rik=6yX8IPJTRJT3nw&riu=http%3a%2f%2fwww.wur.nl%2fupload%2feede61d4-d60b-4f83-9a13-4cdcc7ab9bee_shutterstock_110833442_490x330.jpg&ehk=%2fc9BEPVTCa3BXhX2dY6r99eydXk9sKyGjpP2Yu9%2bwAA%3d&risl=&pid=ImgRaw&r=0" alt="Image 11">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox11-inner" name="checkbox11" value="muscle_wasting">
+                <label for="checkbox11-inner">muscle_wasting</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox12">
+            <input type="checkbox" id="checkbox12" name="checkbox12" style="display: none;" value="vomiting">
+            <img src="https://drprem.com/health/wp-content/uploads/sites/17/2018/11/The-dangers-of-vomiting.jpg" alt="Image 12">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox12-inner" name="checkbox12" value="vomiting">
+                <label for="checkbox12-inner">vomiting</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox13">
+            <input type="checkbox" id="checkbox13" name="checkbox13" style="display: none;" value="burning_micturition">
+            <img src="https://cdn.images.express.co.uk/img/dynamic/11/590x/secondary/Burning-pee-2842489.jpg?r=1610141460219" alt="Image 13">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox13-inner" name="checkbox13" value="burning_micturition">
+                <label for="checkbox13-inner">burning_micturition</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox14">
+            <input type="checkbox" id="checkbox14" name="checkbox14" style="display: none;" value="spotting_urination">
+            <img src="https://www.kayawell.com/Data/UserContentImg/2017/11/ed586861-4de3-42ed-9672-155459727614.jpg" alt="Image 14">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox14-inner" name="checkbox14" value="spotting_urination">
+                <label for="checkbox14-inner">spotting_urination</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox15">
+            <input type="checkbox" id="checkbox15" name="checkbox15" style="display: none;" value="fatigue">
+            <img src="https://images.wisegeek.com/fatigue.jpg" alt="Image 15">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox15-inner" name="checkbox15" value="fatigue">
+                <label for="checkbox15-inner">fatigue</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox16">
+            <input type="checkbox" id="checkbox16" name="checkbox16" style="display: none;" value="weight_gain">
+            <img src="https://th.bing.com/th/id/R.0f3606a2eed8fcc080c807ee14917725?rik=zDXsaoUHLNnlMQ&riu=http%3a%2f%2fnelsonsbooks.com%2fwp-content%2fuploads%2f2018%2f10%2fweight-gain-on-stomach.jpg&ehk=Zo4cx%2fgLKA1n0%2bZHHVy%2f%2bY2GvHILN155uoW1G4KeqYo%3d&risl=&pid=ImgRaw&r=0" alt="Image 16">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox16-inner" name="checkbox16" value="weight_gain">
+                <label for="checkbox16-inner">weight_gain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox17">
+            <input type="checkbox" id="checkbox17" name="checkbox17" style="display: none;" value="anxiety">
+            <img src="https://kdahweb-static.kokilabenhospital.com/kdah-admin2016/tips/5b339126b5e5135549960_1819957991395713_3825739627830968320_n.jpg" alt="Image 17">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox17-inner" name="checkbox17" value="anxiety">
+                <label for="checkbox17-inner">anxiety</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox18">
+            <input type="checkbox" id="checkbox18" name="checkbox18" style="display: none;"
+                value="cold_hands_and_feets">
+            <img src="https://th.bing.com/th/id/OIP.wR5WDSaQTFvZu8vbe4ftJQHaE8?rs=1&pid=ImgDetMain" alt="Image 18">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox18-inner" name="checkbox18" value="cold_hands_and_feets">
+                <label for="checkbox18-inner">cold_hands_and_feets</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox19">
+            <input type="checkbox" id="checkbox19" name="checkbox19" style="display: none;" value="mood_swings">
+            <img src="https://th.bing.com/th/id/OIP.sS9TkNoxy8HOlyJatEu69QHaEn?rs=1&pid=ImgDetMain" alt="Image 19">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox19-inner" name="checkbox19" value="mood_swings">
+                <label for="checkbox19-inner">mood_swings</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox20">
+            <input type="checkbox" id="checkbox20" name="checkbox20" style="display: none;" value="weight_loss">
+            <img src="https://th.bing.com/th/id/OIP.rSedWTNB0pdy7_7g9FW17wHaFj?rs=1&pid=ImgDetMain" alt="Image 20">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox20-inner" name="checkbox20" value="weight_loss">
+                <label for="checkbox20-inner">weight_loss</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox21">
+            <input type="checkbox" id="checkbox21" name="checkbox21" style="display: none;" value="restlessness">
+            <img src="https://th.bing.com/th/id/OIP.uiJSYRQVROexxLb5EOtoHAHaEK?rs=1&pid=ImgDetMain" alt="Image 21">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox21-inner" name="checkbox21" value="restlessness">
+                <label for="checkbox21-inner">restlessness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox22">
+            <input type="checkbox" id="checkbox22" name="checkbox22" style="display: none;" value="lethargy">
+            <img src="https://ci6.googleusercontent.com/proxy/Dt7qaB0lpYxGSuJRaT9hQ04XKz7PReBSL6Z4WYXyykEdU14bMNAZi6nbGGr1qHYGqwshpWBB4rRtxArXCrNnN5iY3a1vBc_XB3PJYTE1EAgZDtX7ZuZLjLAuPX13TmGyPCc-dYlsYnAOm1lZQP4qlr7_D9XIrduUxZhOtl9PP4d9oh6SZAMH0BhFymSRshHRDBpcp8sqL_TRmn0=s0-d-e1-ft#https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/08/GettyImages-1224219246-header-1024x575.jpg?w=1155&h=1528" alt="Image 22">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox22-inner" name="checkbox22" value="lethargy">
+                <label for="checkbox22-inner">lethargy</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox23">
+            <input type="checkbox" id="checkbox23" name="checkbox23" style="display: none;" value="patches_in_throat">
+            <img src="https://th.bing.com/th/id/OIP.AFoXu3rrTCrP-2VKB6PokAHaE7?rs=1&pid=ImgDetMain" alt="Image 23">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox23-inner" name="checkbox23" value="patches_in_throat">
+                <label for="checkbox23-inner">patches_in_throat</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox24">
+            <input type="https://th.bing.com/th/id/OIP.0IMrRzdDUYFa2pl9Gyls4gAAAA?rs=1&pid=ImgDetMaincheckbox" id="checkbox24" name="checkbox24" style="display: none;"
+                value="irregular_sugar_level">
+            <img src="https://th.bing.com/th/id/OIP.0IMrRzdDUYFa2pl9Gyls4gAAAA?rs=1&pid=ImgDetMain" alt="Image 24">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox24-inner" name="checkbox24" value="irregular_sugar_level">
+                <label for="checkbox24-inner">irregular_sugar_level</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox25">
+            <input type="checkbox" id="checkbox25" name="checkbox25" style="display: none;" value="cough">
+            <img src="https://www.docsopinion.com/wp-content/uploads/2018/09/85253833_s.jpg" alt="Image 25">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox25-inner" name="checkbox25" value="cough">
+                <label for="checkbox25-inner">cough</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox26">
+            <input type="checkbox" id="checkbox26" name="checkbox26" style="display: none;" value="high_fever">
+            <img src="https://www.toplinemd.com/ana-hpmd/wp-content/uploads/sites/7/2020/12/What-Is-a-Fever-and-What-Causes-It-in-Children.jpg" alt="Image 26">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox26-inner" name="checkbox26" value="high_fever">
+                <label for="checkbox26-inner">high_fever</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox27">
+            <input type="checkbox" id="checkbox27" name="checkbox27" style="display: none;" value="sunken_eyes">
+            <img src="https://th.bing.com/th/id/OIP.anKDFZQ2KfKsiN7V1crOJgAAAA?rs=1&pid=ImgDetMain" alt="Image 27">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox27-inner" name="checkbox27" value="sunken_eyes">
+                <label for="checkbox27-inner">sunken_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox28">
+            <input type="checkbox" id="checkbox28" name="checkbox28" style="display: none;" value="breathlessness">
+            <img src="https://i0.wp.com/www.extrachai.com/wp-content/uploads/2018/07/bb5b50.jpg?resize=1248%2C835&ssl=1" alt="Image 28">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox28-inner" name="checkbox28" value="breathlessness">
+                <label for="checkbox28-inner">breathlessness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox29">
+            <input type="checkbox" id="checkbox29" name="checkbox29" style="display: none;" value="sweating">
+            <img src="https://th.bing.com/th/id/OIP.hP-xMQLSJNhi7ZFeSlUGuAHaFA?rs=1&pid=ImgDetMain" alt="Image 29">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox29-inner" name="checkbox29" value="sweating">
+                <label for="checkbox29-inner">sweating</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox30">
+            <input type="checkbox" id="checkbox30" name="checkbox30" style="display: none;" value="dehydration">
+            <img src="https://healthjade.com/wp-content/uploads/2017/08/dehydration.jpg" alt="Image 30">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox30-inner" name="checkbox30" value="dehydration">
+                <label for="checkbox30-inner">dehydration</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox31">
+            <input type="checkbox" id="checkbox31" name="checkbox31" style="display: none;" value="indigestion">
+            <img src="https://th.bing.com/th/id/OIP.ECnedpr-ruDWfsmoskphtwHaD4?rs=1&pid=ImgDetMain" alt="Image 31">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox31-inner" name="checkbox31" value="indigestion">
+                <label for="checkbox31-inner">indigestion</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox32">
+            <input type="checkbox" id="checkbox32" name="checkbox32" style="display: none;" value="headache">
+            <img src="https://2.bp.blogspot.com/--2SAQ-9vg7M/VVN6F2PnUOI/AAAAAAAAABI/sqYOjCwVwm8/s1600/Tension-type%2BHeadache%2B-%2BClinical%2BSymptoms%2Band%2BCauses.jpg" alt="Image 32">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox32-inner" name="checkbox32" value="headache">
+                <label for="checkbox32-inner">headache</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox33">
+            <input type="checkbox" id="checkbox33" name="checkbox33" style="display: none;" value="yellowish_skin">
+            <img src="https://images-prod.healthline.com/hlcmsresource/images/Read-More-conversion-images/jaundice/pancreatic-cancer-1296x728-Header.jpg" alt="Image 33">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox33-inner" name="checkbox33" value="yellowish_skin">
+                <label for="checkbox33-inner">yellowish_skin</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox34">
+            <input type="checkbox" id="checkbox34" name="checkbox34" style="display: none;" value="dark_urine">
+            <img src="https://factdr.com/wp-content/uploads/2018/07/RHABDOMYOLYSIS-dark-urine.png" alt="Image 34">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox34-inner" name="checkbox34" value="dark_urine">
+                <label for="checkbox34-inner">dark_urine</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox35">
+            <input type="checkbox" id="checkbox35" name="checkbox35" style="display: none;" value="nausea">
+            <img src="https://www.nutritionfact.in/wp-content/uploads/2022/11/Nausea.jpg" alt="Image 35">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox35-inner" name="checkbox35" value="nausea">
+                <label for="checkbox35-inner">nausea</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox36">
+            <input type="checkbox" id="checkbox36" name="checkbox36" style="display: none;" value="loss_of_appetite">
+            <img src="https://bestgastrocare.com/img/asset/looss.png" alt="Image 36">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox36-inner" name="checkbox36" value="loss_of_appetite">
+                <label for="checkbox36-inner">loss_of_appetite</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox37">
+            <input type="checkbox" id="checkbox37" name="checkbox37" style="display: none;"
+                value="pain_behind_the_eyes">
+            <img src="https://www.foreyes.com/media/blog/What_Should_You_Do_If_You_Have_Pain_in_Your_Eye_Socket_header.jpg" alt="Image 37">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox37-inner" name="checkbox37" value="pain_behind_the_eyes">
+                <label for="checkbox37-inner">pain_behind_the_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox38">
+            <input type="checkbox" id="checkbox38" name="checkbox38" style="display: none;" value="back_pain">
+            <img src="https://th.bing.com/th/id/OIP.fevWRmQ2cMX-gICt8d8gQwHaHa?rs=1&pid=ImgDetMain" alt="Image 38">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox38-inner" name="checkbox38" value="back_pain">
+                <label for="checkbox38-inner">back_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox39">
+            <input type="checkbox" id="checkbox39" name="checkbox39" style="display: none;" value="constipation">
+            <img src="https://cdn.images.express.co.uk/img/dynamic/11/750x445/1160311.jpg" alt="Image 39">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox39-inner" name="checkbox39" value="constipation">
+                <label for="checkbox39-inner">constipation</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox40">
+            <input type="checkbox" id="checkbox40" name="checkbox40" style="display: none;" value="abdominal_pain">
+            <img src="https://i.ytimg.com/vi/0WHmvyWT2FA/maxresdefault.jpg" alt="Image 40">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox40-inner" name="checkbox40" value="abdominal_pain">
+                <label for="checkbox40-inner">abdominal_pain</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox41">
+            <input type="checkbox" id="checkbox41" name="checkbox41" style="display: none;" value="diarrhoea">
+            <img src="https://assets.unilab.com.ph/uploads/Unilab/Articles/Probiotics/AB_DiarrheaChildren.jpg" alt="Image 41">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox41-inner" name="checkbox41" value="diarrhoea">
+                <label for="checkbox41-inner">diarrhoea</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox42">
+            <input type="checkbox" id="checkbox42" name="checkbox42" style="display: none;" value="mild_fever">
+            <img src="https://th.bing.com/th/id/OIP.NIy5plCVfxrthdnFv7wQxgHaEK?rs=1&pid=ImgDetMain" alt="Image 42">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox42-inner" name="checkbox42" value="mild_fever">
+                <label for="checkbox42-inner">mild_fever</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox43">
+            <input type="checkbox" id="checkbox43" name="checkbox43" style="display: none;" value="yellow_urine">
+            <img src="https://www.nourishdoc.com/wp-content/uploads/2021/06/Bright-Yellow-Urine-Causes-1024x682.jpg" alt="Image 43">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox43-inner" name="checkbox43" value="yellow_urine">
+                <label for="checkbox43-inner">yellow_urine</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox44">
+            <input type="checkbox" id="checkbox44" name="checkbox44" style="display: none;" value="yellowing_of_eyes">
+            <img src="https://fattyliverdisease.com/wp-content/uploads/2020/09/FeaturedImage_Yellow-Eyes.jpg" alt="Image 44">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox44-inner" name="checkbox44" value="yellowing_of_eyes">
+                <label for="checkbox44-inner">yellowing_of_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox45">
+            <input type="checkbox" id="checkbox45" name="checkbox45" style="display: none;" value="acute_liver_failure">
+            <img src="https://www.advancells.com/wp-content/uploads/2022/07/Acute-liver-failure.jpg" alt="Image 45">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox45-inner" name="checkbox45" value="acute_liver_failure">
+                <label for="checkbox45-inner">acute_liver_failure</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox46">
+            <input type="checkbox" id="checkbox46" name="checkbox46" style="display: none;" value="fluid_overload">
+            <img src="https://res.cloudinary.com/dxdqhh6rqt/image/upload/v1548402075/mtpz8qzaldnns9pwqmib.jpg" alt="Image 46">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox46-inner" name="checkbox46" value="fluid_overload">
+                <label for="checkbox46-inner">fluid_overload</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox47">
+            <input type="checkbox" id="checkbox47" name="checkbox47" style="display: none;" value="swelling_of_stomach">
+            <img src="https://cdn.images.express.co.uk/img/dynamic/11/750x445/1286771.jpg" alt="Image 47">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox47-inner" name="checkbox47" value="swelling_of_stomach">
+                <label for="checkbox47-inner">swelling_of_stomach</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox48">
+            <input type="checkbox" id="checkbox48" name="checkbox48" style="display: none;" value="swelled_lymph_nodes">
+            <img src="https://th.bing.com/th/id/OIP.W4FxtAWK7ksIuYk1Ka47mAHaEL?rs=1&pid=ImgDetMain" alt="Image 48">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox48-inner" name="checkbox48" value="swelled_lymph_nodes">
+                <label for="checkbox48-inner">swelled_lymph_nodes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox49">
+            <input type="checkbox" id="checkbox49" name="checkbox49" style="display: none;" value="malaise">
+            <img src="https://th.bing.com/th/id/R.7e1a19521618fb664ac2fafeafa514bd?rik=rdn2z4zmKNd9zQ&riu=http%3a%2f%2fwww.natural-health-news.com%2fwp-content%2fuploads%2f2015%2f05%2fMalaise.jpg&ehk=lruxmd9mTfPvlFCIiQjpCj9lTroVJHJUq650jqLQA%2f4%3d&risl=&pid=ImgRaw&r=0" alt="Image 49">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox49-inner" name="checkbox49" value="malaise">
+                <label for="checkbox49-inner">malaise</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox50">
+            <input type="checkbox" id="checkbox50" name="checkbox50" style="display: none;"
+                value="blurred_and_distorted_vision">
+            <img src="https://th.bing.com/th/id/OIP.C8iWol2OCZmywSSsdw5bFQHaFw?rs=1&pid=ImgDetMain" alt="Image 50">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox50-inner" name="checkbox50" value="blurred_and_distorted_vision">
+                <label for="checkbox50-inner">blurred_and_distorted_vision</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox51">
+            <input type="checkbox" id="checkbox51" name="checkbox51" style="display: none;" value="phlegm">
+            <img src="https://i.pinimg.com/736x/e6/cc/67/e6cc6707bdf30c6318cdbb3f95ba3c7c.jpg" alt="Image 51">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox51-inner" name="checkbox51" value="phlegm">
+                <label for="checkbox51-inner">phlegm</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox52">
+            <input type="checkbox" id="checkbox52" name="checkbox52" style="display: none;" value="throat_irritation">
+            <img src="https://ducqwa68j3xun.cloudfront.net/wp-content/uploads/2018/09/462240563.jpg" alt="Image 52">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox52-inner" name="checkbox52" value="throat_irritation">
+                <label for="checkbox52-inner">throat_irritation</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox53">
+            <input type="checkbox" id="checkbox53" name="checkbox53" style="display: none;" value="redness_of_eyes">
+            <img src="https://www.verywellhealth.com/thmb/lsF7uugVVrh5jWZOFthc-5t5ggY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1290889190-3d670a6f2adf4be897a4b9afbc2e94c5.jpg" alt="Image 53">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox53-inner" name="checkbox53" value="redness_of_eyes">
+                <label for="checkbox53-inner">redness_of_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox54">
+            <input type="checkbox" id="checkbox54" name="checkbox54" style="display: none;" value="sinus_pressure">
+            <img src="https://th.bing.com/th/id/OIP.k-3B41Zb0b0KjUzAUXg26QD2D-?rs=1&pid=ImgDetMain" alt="Image 54">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox54-inner" name="checkbox54" value="sinus_pressure">
+                <label for="checkbox54-inner">sinus_pressure</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox55">
+            <input type="checkbox" id="checkbox55" name="checkbox55" style="display: none;" value="runny_nose">
+            <img src="https://img.webtech360.com/imagesupdate5/image-webtech360-1203080423171.jpg" alt="Image 55">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox55-inner" name="checkbox55" value="runny_nose">
+                <label for="checkbox55-inner">runny_nose</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox56">
+            <input type="checkbox" id="checkbox56" name="checkbox56" style="display: none;" value="congestion">
+            <img src="https://images.onlymyhealth.com/imported/images/2021/August/17_Aug_2021/social_congestiontypes.jpg" alt="Image 56">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox56-inner" name="checkbox56" value="congestion">
+                <label for="checkbox56-inner">congestion</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox57">
+            <input type="checkbox" id="checkbox57" name="checkbox57" style="display: none;" value="chest_pain">
+            <img src="https://th.bing.com/th/id/OIP.U_u161u-hMD-PdXNfaj6ZAHaE7?rs=1&pid=ImgDetMain" alt="Image 57">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox57-inner" name="checkbox57" value="chest_pain">
+                <label for="checkbox57-inner">chest_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox58">
+            <input type="checkbox" id="checkbox58" name="checkbox58" style="display: none;" value="weakness_in_limbs">
+            <img src="https://th.bing.com/th/id/OIP.m6sEwOsyDeD93WA2lYcTygHaES?rs=1&pid=ImgDetMain" alt="Image 58">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox58-inner" name="checkbox58" value="weakness_in_limbs">
+                <label for="checkbox58-inner">weakness_in_limbs</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox59">
+            <input type="checkbox" id="checkbox59" name="checkbox59" style="display: none;" value="fast_heart_rate">
+            <img src="https://myheart.net/wp-content/uploads/2017/07/fast-heart-rate.jpg" alt="Image 59">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox59-inner" name="checkbox59" value="fast_heart_rate">
+                <label for="checkbox59-inner">fast_heart_rate</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox60">
+            <input type="checkbox" id="checkbox60" name="checkbox60" style="display: none;"
+                value="pain_during_bowel_movements">
+            <img src="https://th.bing.com/th/id/OIP.3T8EpqEcFTzm454i2eSFDgHaE8?rs=1&pid=ImgDetMain" alt="Image 60">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox60-inner" name="checkbox60" value="pain_during_bowel_movements">
+                <label for="checkbox60-inner">pain_during_bowel_movements</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox61">
+            <input type="checkbox" id="checkbox61" name="checkbox61" style="display: none;" value="pain_in_anal_region">
+            <img src="https://www.verywellhealth.com/thmb/eyH2W3yHKHjO-U2Vpi4AcMDlA4E=/3000x2000/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-levator-ani-syndrome-1944702_final-81abe67b664648798891a18e026ddbbe.png" alt="Image 61">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox61-inner" name="checkbox61" value="pain_in_anal_region">
+                <label for="checkbox61-inner">pain_in_anal_region</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox62">
+            <input type="checkbox" id="checkbox62" name="checkbox62" style="display: none;" value="bloody_stool">
+            <img src="https://www.pristyncare.com/blog/wp-content/uploads/2019/08/Why-is-there-blood-in-your-stool-768x384.jpg" alt="Image 62">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox62-inner" name="checkbox62" value="bloody_stool">
+                <label for="checkbox62-inner">bloody_stool</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox63">
+            <input type="checkbox" id="checkbox63" name="checkbox63" style="display: none;" value="irritation_in_anus">
+            <img src="https://www.verywellfamily.com/thmb/m2qYdYHN7X9l-yJ8A5peSLA3hAo=/6000x4000/filters:no_upscale():max_bytes(150000):strip_icc()/causes-and-treatment-of-anal-itching-289464_color2-5c12c095c9e77c0001f95b42.png" alt="Image 63">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox63-inner" name="checkbox63" value="irritation_in_anus">
+                <label for="checkbox63-inner">irritation_in_anus</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox64">
+            <input type="checkbox" id="checkbox64" name="checkbox64" style="display: none;" value="neck_pain">
+            <img src="https://th.bing.com/th/id/OIP.GiVMEjtpie4oX3B0aQQB1QAAAA?rs=1&pid=ImgDetMain" alt="Image 64">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox64-inner" name="checkbox64" value="neck_pain">
+                <label for="checkbox64-inner">neck_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox65">
+            <input type="checkbox" id="checkbox65" name="checkbox65" style="display: none;" value="dizziness">
+            <img src="https://www.neuroequilibrium.in/wp-content/uploads/2019/10/headache-2.png" alt="Image 65">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox65-inner" name="checkbox65" value="dizziness">
+                <label for="checkbox65-inner">dizziness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox66">
+            <input type="checkbox" id="checkbox66" name="checkbox66" style="display: none;" value="cramps">
+            <img src="https://i.pinimg.com/originals/a9/00/39/a90039ec9f0bd26a1f9c13812a64c9a0.jpg" alt="Image 66">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox66-inner" name="checkbox66" value="cramps">
+                <label for="checkbox66-inner">cramps</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox67">
+            <input type="checkbox" id="checkbox67" name="checkbox67" style="display: none;" value="bruising">
+            <img src="https://th.bing.com/th/id/OIP.AGz5zN4X31Z4DRYQOgfZLwHaD4?rs=1&pid=ImgDetMain" alt="Image 67">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox67-inner" name="checkbox67" value="bruising">
+                <label for="checkbox67-inner">bruising</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox68">
+            <input type="checkbox" id="checkbox68" name="checkbox68" style="display: none;" value="obesity">
+            <img src="https://www.arribatrends.com/wp-content/uploads/2020/11/Obesity.jpeg" alt="Image 68">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox68-inner" name="checkbox68" value="obesity">
+                <label for="checkbox68-inner">obesity</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox69">
+            <input type="checkbox" id="checkbox69" name="checkbox69" style="display: none;" value="swollen_legs">
+            <img src="https://i1.wp.com/womensnewlookandhealthin21stcentury.com/wp-content/uploads/2018/06/lymph.png?w=950" alt="Image 69">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox69-inner" name="checkbox69" value="swollen_legs">
+                <label for="checkbox69-inner">swollen_legs</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox70">
+            <input type="checkbox" id="checkbox70" name="checkbox70" style="display: none;"
+                value="swollen_blood_vessels">
+            <img src="https://th.bing.com/th/id/R.fdbdf64464dfeb666483c6af7e117195?rik=HOAbniIOtOJArQ&riu=http%3a%2f%2fwww.belmarrahealth.com%2fwp-content%2fuploads%2f2017%2f08%2fbulging-veins-in-hands.jpg&ehk=6ilJ9%2bbQ6fRQiJ9l1CZsSK9xtte02KVuESRo6NjuyBs%3d&risl=&pid=ImgRaw&r=0" alt="Image 70">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox70-inner" name="checkbox70" value="swollen_blood_vessels">
+                <label for="checkbox70-inner">swollen_blood_vessels</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox71">
+            <input type="checkbox" id="checkbox71" name="checkbox71" style="display: none;" value="puffy_face_and_eyes">
+            <img src="https://th.bing.com/th/id/OIP.Axt38NQwLoykMpjn7G7yOgHaEy?rs=1&pid=ImgDetMain" alt="Image 71">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox71-inner" name="checkbox71" value="puffy_face_and_eyes">
+                <label for="checkbox71-inner">puffy_face_and_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox72">
+            <input type="checkbox" id="checkbox72" name="checkbox72" style="display: none;" value="enlarged_thyroid">
+            <img src="https://th.bing.com/th/id/OIP.usi62_PeoIcKh6P7w8ExgAHaFi?rs=1&pid=ImgDetMains" alt="Image 72">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox72-inner" name="checkbox72" value="enlarged_thyroid">
+                <label for="checkbox72-inner">enlarged_thyroid</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox73">
+            <input type="checkbox" id="checkbox73" name="checkbox73" style="display: none;" value="brittle_nails">
+            <img src="https://www.verywellhealth.com/thmb/yq8cuMI-1I41uZoqEvnhCuMgwdI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1272578962-34ab9a1663b84c6db9d873658e45855f.jpg" alt="Image 73">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox73-inner" name="checkbox73" value="brittle_nails">
+                <label for="checkbox73-inner">brittle_nails</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox74">
+            <input type="checkbox" id="checkbox74" name="checkbox74" style="display: none;" value="swollen_extremeties">
+            <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322980/rheumatoid-arthritis-swelling-wrist.jpg?w=1155&h=1734" alt="Image 74">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox74-inner" name="checkbox74" value="swollen_extremeties">
+                <label for="checkbox74-inner">swollen_extremeties</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox75">
+            <input type="checkbox" id="checkbox75" name="checkbox75" style="display: none;" value="excessive_hunger">
+            <img src="https://th.bing.com/th/id/OIP.xZ-d2EIvcZlPnDi07JqNowHaDK?rs=1&pid=ImgDetMain" alt="Image 75">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox75-inner" name="checkbox75" value="excessive_hunger">
+                <label for="checkbox75-inner">excessive_hunger</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox76">
+            <input type="checkbox" id="checkbox76" name="checkbox76" style="display: none;"
+                value="extra_marital_contacts">
+            <img src="https://th.bing.com/th/id/OIP.VnpT_AKN_ibsuRVIxpUnMAHaEH?rs=1&pid=ImgDetMain" alt="Image 76">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox76-inner" name="checkbox76" value="extra_marital_contacts">
+                <label for="checkbox76-inner">extra_marital_contacts</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox77">
+            <input type="checkbox" id="checkbox77" name="checkbox77" style="display: none;"
+                value="drying_and_tingling_lips">
+            <img src="https://th.bing.com/th/id/OIP.i5K0V-S1IYB4lzOaZ6EXuAHaDr?rs=1&pid=ImgDetMain" alt="Image 77">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox77-inner" name="checkbox77" value="drying_and_tingling_lips">
+                <label for="checkbox77-inner">drying_and_tingling_lips</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox78">
+            <input type="checkbox" id="checkbox78" name="checkbox78" style="display: none;" value="slurred_speech">
+            <img src="https://multiplesclerosisnewstoday.com/forums/wp-content/uploads/2019/02/shutterstock_326227442-1000x480@2x.jpg" alt="Image 78">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox78-inner" name="checkbox78" value="slurred_speech">
+                <label for="checkbox78-inner">slurred_speech</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox79">
+            <input type="checkbox" id="checkbox79" name="checkbox79" style="display: none;" value="knee_pain">
+            <img src="https://th.bing.com/th/id/R.825bc4d47245fbfd76fd99c554320a4a?rik=GxIYjSgQkds8BQ&riu=http%3a%2f%2fssorkc.com%2fwp-content%2fuploads%2f2016%2f04%2fknee-pain.jpg&ehk=6zvblMfYqCvzPRoImQV%2bPz419%2b7yiB8IMxLyiptMFLw%3d&risl=1&pid=ImgRaw&r=0" alt="Image 79">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox79-inner" name="checkbox79" value="knee_pain">
+                <label for="checkbox79-inner">knee_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox80">
+            <input type="checkbox" id="checkbox80" name="checkbox80" style="display: none;" value="hip_joint_pain">
+            <img src="https://th.bing.com/th/id/OIP.B0QbMQIT7zmrVgGk9DkNywAAAA?rs=1&pid=ImgDetMain" alt="Image 80">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox80-inner" name="checkbox80" value="hip_joint_pain">
+                <label for="checkbox80-inner">hip_joint_pain</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox81">
+            <input type="checkbox" id="checkbox81" name="checkbox81" style="display: none;" value="muscle_weakness">
+            <img src="https://di.myupchar.com/2344/muscle-weakness-maspeshiyo-ki-kamjori-ke-lakshan-karan-upchar-bachav-ilaj-dawa-in-hindi.png" alt="Image 81">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox81-inner" name="checkbox81" value="muscle_weakness">
+                <label for="checkbox81-inner">muscle_weakness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox82">
+            <input type="checkbox" id="checkbox82" name="checkbox82" style="display: none;" value="stiff_neck">
+            <img src="https://fitnessvolt.com/wp-content/uploads/2017/02/stiff-neck.jpg" alt="Image 82">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox82-inner" name="checkbox82" value="stiff_neck">
+                <label for="checkbox82-inner">stiff_neck</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox83">
+            <input type="checkbox" id="checkbox83" name="checkbox83" style="display: none;" value="swelling_joints">
+            <img src="https://th.bing.com/th/id/OIP.AEfYegmhYYFLOtuH9CWR3wHaFj?rs=1&pid=ImgDetMain" alt="Image 83">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox83-inner" name="checkbox83" value="swelling_joints">
+                <label for="checkbox83-inner">swelling_joints</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox84">
+            <input type="checkbox" id="checkbox84" name="checkbox84" style="display: none;" value="movement_stiffness">
+            <img src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/320545_2200-1200x628.jpg" alt="Image 84">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox84-inner" name="checkbox84" value="movement_stiffness">
+                <label for="checkbox84-inner">movement_stiffness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox85">
+            <input type="checkbox" id="checkbox85" name="checkbox85" style="display: none;" value="spinning_movements">
+            <img src="https://i.pinimg.com/originals/fc/55/64/fc5564df8aab7266e0bee717e29d65db.jpg" alt="Image 85">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox85-inner" name="checkbox85" value="spinning_movements">
+                <label for="checkbox85-inner">spinning_movements</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox86">
+            <input type="checkbox" id="checkbox86" name="checkbox86" style="display: none;" value="loss_of_balance">
+            <img src="https://optinghealth.com/wp-content/uploads/2022/11/Loss-of-Balance-and-Coordination.jpg" alt="Image 86">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox86-inner" name="checkbox86" value="loss_of_balance">
+                <label for="checkbox86-inner">loss_of_balance</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox87">
+            <input type="checkbox" id="checkbox87" name="checkbox87" style="display: none;" value="unsteadiness">
+            <img src="https://th.bing.com/th/id/OIP.qICp_rndhV4YUPNScvjqBAAAAA?rs=1&pid=ImgDetMain" alt="Image 87">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox87-inner" name="checkbox87" value="unsteadiness">
+                <label for="checkbox87-inner">unsteadiness</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox88">
+            <input type="checkbox" id="checkbox88" name="checkbox88" style="display: none;"
+                value="weakness_of_one_body_side">
+            <img src="https://healthjade.com/wp-content/uploads/2019/01/muscle-weakness.jpg" alt="Image 88">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox88-inner" name="checkbox88" value="weakness_of_one_body_side">
+                <label for="checkbox88-inner">weakness_of_one_body_side</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox89">
+            <input type="checkbox" id="checkbox89" name="checkbox89" style="display: none;" value="loss_of_smell">
+            <img src="https://hms.harvard.edu/sites/default/files/media/850-GettyImages-1223368300.jpg" alt="Image 89">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox89-inner" name="checkbox89" value="loss_of_smell">
+                <label for="checkbox89-inner">loss_of_smell</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox90">
+            <input type="checkbox" id="checkbox90" name="checkbox90" style="display: none;" value="bladder_discomfort">
+            <img src="https://th.bing.com/th/id/OIP.XHNPJQwziMle2BiWOu-imQHaDu?rs=1&pid=ImgDetMain" alt="Image 90">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox90-inner" name="checkbox90" value="bladder_discomfort">
+                <label for="checkbox90-inner">bladder_discomfort</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox91">
+            <input type="checkbox" id="checkbox91" name="checkbox91" style="display: none;" value="foul_smell_ofurine">
+            <img src="https://www.healthyandnaturalworld.com/wp-content/uploads/2018/08/post1267.jpg" alt="Image 91">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox91-inner" name="checkbox91" value="foul_smell_ofurine">
+                <label for="checkbox91-inner">foul_smell_ofurine</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox92">
+            <input type="checkbox" id="checkbox92" name="checkbox92" style="display: none;"
+                value="continuous_feel_of_urine">
+            <img src="https://th.bing.com/th/id/OIP.bbgZIqSHG1rEFhuON1xzjQAAAA?rs=1&pid=ImgDetMain" alt="Image 92">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox92-inner" name="checkbox92" value="continuous_feel_of_urine">
+                <label for="checkbox92-inner">continuous_feel_of_urine</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox93">
+            <input type="checkbox" id="checkbox93" name="checkbox93" style="display: none;" value="passage_of_gases">
+            <img src="https://patient.gastro.org/wp-content/uploads/2021/09/CGH-Gas-PatientEd-2019-1024x803.jpg" alt="Image 93">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox93-inner" name="checkbox93" value="passage_of_gases">
+                <label for="checkbox93-inner">passage_of_gases</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox94">
+            <input type="checkbox" id="checkbox94" name="checkbox94" style="display: none;" value="internal_itching">
+            <img src="https://www.verywellhealth.com/thmb/MbN8rkvk6e4-dzHQnDjUb9QP1Y8=/2120x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-158875549-5add244304d1cf0037bb8736.jpg" alt="Image 94">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox94-inner" name="checkbox94" value="internal_itching">
+                <label for="checkbox94-inner">internal_itching</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox95">
+            <input type="checkbox" id="checkbox95" name="checkbox95" style="display: none;" value="toxic_look_(typhos)">
+            <img src="https://th.bing.com/th/id/R.81491ff709f2ec483cfede7214dce3d8?rik=lqF0eJPhR4lc2g&riu=http%3a%2f%2fwww.top10homeremedies.com%2fwp-content%2fuploads%2f2015%2f10%2ftoxins.jpg&ehk=sD0eKsNVb5YoOiGr%2fIy3a0OwK4E6H82w58zV96LLGwI%3d&risl=&pid=ImgRaw&r=0" alt="Image 95">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox95-inner" name="checkbox95" value="toxic_look_(typhos)">
+                <label for="checkbox95-inner">toxic_look_</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox96">
+            <input type="checkbox" id="checkbox96" name="checkbox96" style="display: none;" value="depression">
+            <img src="https://th.bing.com/th/id/OIP.EHDTwBSoyyg2QfYlXnx7AwHaEb?rs=1&pid=ImgDetMain" alt="Image 96">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox96-inner" name="checkbox96" value="depression">
+                <label for="checkbox96-inner">depression</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox97">
+            <input type="checkbox" id="checkbox97" name="checkbox97" style="display: none;" value="irritability">
+            <img src="https://elevationbehavioralhealth.com/wp-content/uploads/2021/02/severe-irritability-1.jpg" alt="Image 97">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox97-inner" name="checkbox97" value="irritability">
+                <label for="checkbox97-inner">irritability</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox98">
+            <input type="checkbox" id="checkbox98" name="checkbox98" style="display: none;" value="muscle_pain">
+            <img src="https://th.bing.com/th/id/R.aeb25d97f90d51bd2e53711af9781e57?rik=nPKsFf4MQscRrw&riu=http%3a%2f%2ffirstaidreference.com%2fwp-content%2fuploads%2f2020%2f12%2fUpper-Arm-Muscle-Pain.jpg&ehk=4As7pB7UT7uJvfPKhzIigmQ0cTDgsNeWdjzJo3vMJ04%3d&risl=&pid=ImgRaw&r=0" alt="Image 98">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox98-inner" name="checkbox98" value="muscle_pain">
+                <label for="checkbox98-inner">muscle_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox99">
+            <input type="checkbox" id="checkbox99" name="checkbox99" style="display: none;" value="altered_sensorium">
+            <img src="https://image.slidesharecdn.com/post-op-160119032744/95/post-opinfection-oliguria-dvt-17-638.jpg?cb=1453174513" alt="Image 99">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox99-inner" name="checkbox99" value="altered_sensorium">
+                <label for="checkbox99-inner">altered_sensorium</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox100">
+            <input type="checkbox" id="checkbox100" name="checkbox100" style="display: none;"
+                value="red_spots_over_body">
+            <img src="https://th.bing.com/th/id/OIP.emLaaAA7PFAfTrTIiHVT8wHaEK?rs=1&pid=ImgDetMain" alt="Image 100">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox100-inner" name="checkbox100" value="red_spots_over_body">
+                <label for="checkbox100-inner">red_spots_over_body</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox101">
+            <input type="checkbox" id="checkbox101" name="checkbox101" style="display: none;" value="belly_pain">
+            <img src="https://th.bing.com/th/id/OIP.AFpSL8VJsBHRMw-KAYKc9QHaJl?rs=1&pid=ImgDetMain" alt="Image 101">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox101-inner" name="checkbox101" value="belly_pain">
+                <label for="checkbox101-inner">belly_pain</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox102">
+            <input type="checkbox" id="checkbox102" name="checkbox102" style="display: none;"
+                value="abnormal_menstruation">
+            <img src="https://cdn-community.pressidium.com/wp-content/uploads/2019/03/Irregular-Periods-Symptoms.jpg" alt="Image 102">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox102-inner" name="checkbox102" value="abnormal_menstruation">
+                <label for="checkbox102-inner">abnormal_menstruation</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox103">
+            <input type="checkbox" id="checkbox103" name="checkbox103" style="display: none;"
+                value="dischromic_patches">
+            <img src="https://th.bing.com/th/id/OIP.KHOjNuzAHDN7gRekJ_dGVQHaEK?rs=1&pid=ImgDetMain" alt="Image 103">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox103-inner" name="checkbox103" value="dischromic_patches">
+                <label for="checkbox103-inner">dischromic_patches</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox104">
+            <input type="checkbox" id="checkbox104" name="checkbox104" style="display: none;"
+                value="watering_from_eyes">
+            <img src="https://th.bing.com/th/id/OIP.atQlo9PLgbtpcWuvhwdIhAHaE7?rs=1&pid=ImgDetMain" alt="Image 104">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox104-inner" name="checkbox104" value="watering_from_eyes">
+                <label for="checkbox104-inner">watering_from_eyes</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox105">
+            <input type="checkbox" id="checkbox105" name="checkbox105" style="display: none;"
+                value="increased_appetite">
+            <img src="https://bestgastrocare.com/img/asset/looss.png" alt="Image 105">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox105-inner" name="checkbox105" value="increased_appetite">
+                <label for="checkbox105-inner">increased_appetite</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox106">
+            <input type="checkbox" id="checkbox106" name="checkbox106" style="display: none;" value="polyuria">
+            <img src="https://cdn.medizzy.com/tthV7Tc-kYB0QP9idfQBnXJuZBI=/1080x1091/img/posts/ecc0dd4b-7f96-44c6-80dd-4b7f96f4c621" alt="Image 106">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox106-inner" name="checkbox106" value="polyuria">
+                <label for="checkbox106-inner">polyuria</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox107">
+            <input type="checkbox" id="checkbox107" name="checkbox107" style="display: none;" value="family_history">
+            <img src="https://th.bing.com/th/id/OIP.aSlbPh2oSZLPk_d6xvyTqQHaHa?rs=1&pid=ImgDetMain" alt="Image 107">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox107-inner" name="checkbox107" value="family_history">
+                <label for="checkbox107-inner">family_history</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox108">
+            <input type="checkbox" id="checkbox108" name="checkbox108" style="display: none;" value="mucoid_sputum">
+            <img src="https://th.bing.com/th/id/OIP.S5d-6GsEi5C1Qb-bN_FczAHaD4?rs=1&pid=ImgDetMain" alt="Image 108">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox108-inner" name="checkbox108" value="mucoid_sputum">
+                <label for="checkbox108-inner">mucoid_sputum</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox109">
+            <input type="checkbox" id="checkbox109" name="checkbox109" style="display: none;" value="rusty_sputum">
+            <img src="https://image.slidesharecdn.com/nrmnsputum-140414155627-phpapp02/95/use-of-sputum-sample-for-diagnosis-of-disease-interpretation-treatment-clinical-corelation-3-1024.jpg?cb=1397491095" alt="Image 109">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox109-inner" name="checkbox109" value="rusty_sputum">
+                <label for="checkbox109-inner">rusty_sputum</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox110">
+            <input type="checkbox" id="checkbox110" name="checkbox110" style="display: none;"
+                value="lack_of_concentration">
+            <img src="https://th.bing.com/th/id/OIP.S2QZd48V6NtbpbOqQ8yaZwHaEK?rs=1&pid=ImgDetMain" alt="Image 110">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox110-inner" name="checkbox110" value="lack_of_concentration">
+                <label for="checkbox110-inner">lack_of_concentration</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox111">
+            <input type="checkbox" id="checkbox111" name="checkbox111" style="display: none;"
+                value="visual_disturbances">
+            <img src="https://th.bing.com/th/id/OIP.Yjl4d1s2aLxkiBEKN0o4MwHaF1?rs=1&pid=ImgDetMain" alt="Image 111">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox111-inner" name="checkbox111" value="visual_disturbances">
+                <label for="checkbox111-inner">visual_disturbances</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox112">
+            <input type="checkbox" id="checkbox112" name="checkbox112" style="display: none;"
+                value="receiving_blood_transfusion">
+            <img src="https://healthandwillness.org/wp-content/uploads/2022/01/Anaphylactic-blood-transfusion-reaction.jpg" alt="Image 112">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox112-inner" name="checkbox112" value="receiving_blood_transfusion">
+                <label for="checkbox112-inner">receiving_blood_transfusion</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox113">
+            <input type="checkbox" id="checkbox113" name="checkbox113" style="display: none;"
+                value="receiving_unsterile_injections">
+            <img src="https://th.bing.com/th/id/OIP.-DHhuBcUbKZHKwzTYuIVugHaE7?rs=1&pid=ImgDetMain" alt="Image 113">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox113-inner" name="checkbox113" value="receiving_unsterile_injections">
+                <label for="checkbox113-inner">receiving_unsterile_injections</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox114">
+            <input type="checkbox" id="checkbox114" name="checkbox114" style="display: none;" value="coma">
+            <img src="https://th.bing.com/th/id/OIP.T7gBNpCBKDp-SgPaAlcLewHaEU?rs=1&pid=ImgDetMain" alt="Image 114">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox114-inner" name="checkbox114" value="coma">
+                <label for="checkbox114-inner">coma</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox115">
+            <input type="checkbox" id="checkbox115" name="checkbox115" style="display: none;" value="stomach_bleeding">
+            <img src="https://www.carygastro.com/uploads/_1200x720_crop_center-center_100_none/Gastrointestinal-Bleeding.jpg" alt="Image 115">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox115-inner" name="checkbox115" value="stomach_bleeding">
+                <label for="checkbox115-inner">stomach_bleeding</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox116">
+            <input type="checkbox" id="checkbox116" name="checkbox116" style="display: none;"
+                value="distention_of_abdomen">
+            <img src="https://i.ytimg.com/vi/mHBul54CjI8/maxresdefault.jpg" alt="Image 116">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox116-inner" name="checkbox116" value="distention_of_abdomen">
+                <label for="checkbox116-inner">distention_of_abdomen</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox117">
+            <input type="checkbox" id="checkbox117" name="checkbox117" style="display: none;"
+                value="history_of_alcohol_consumption">
+            <img src="https://th.bing.com/th/id/OIP.Lg10Ma4_CWM8WWX-hilcawHaFX?rs=1&pid=ImgDetMain" alt="Image 117">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox117-inner" name="checkbox117" value="history_of_alcohol_consumption">
+                <label for="checkbox117-inner">history_of_alcohol_consumption</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox118">
+            <input type="checkbox" id="checkbox118" name="checkbox118" style="display: none;" value="fluid_overload">
+            <img src="https://th.bing.com/th/id/OIP._ul6MrcwvpdUXZzrAKdWYgHaF2?rs=1&pid=ImgDetMain" alt="Image 118">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox118-inner" name="checkbox118" value="fluid_overload">
+                <label for="checkbox118-inner">fluid_overload</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox119">
+            <input type="checkbox" id="checkbox119" name="checkbox119" style="display: none;" value="blood_in_sputum">
+            <img src="https://th.bing.com/th/id/OIP.oHt1LLL0QOlSKf3CHjnKVgHaE8?rs=1&pid=ImgDetMain" alt="Image 119">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox119-inner" name="checkbox119" value="blood_in_sputum">
+                <label for="checkbox119-inner">blood_in_sputum</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox120">
+            <input type="checkbox" id="checkbox120" name="checkbox120" style="display: none;"
+                value="prominent_veins_on_calf">
+            <img src="https://th.bing.com/th/id/OIP.fPt93P8LLQhc9AdbT1cgJAHaF7?rs=1&pid=ImgDetMain" alt="Image 120">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox120-inner" name="checkbox120" value="prominent_veins_on_calf">
+                <label for="checkbox120-inner">prominent_veins_on_calf</label>
+            </div>
+        </label>
+        <label class="card" for="checkbox121">
+            <input type="checkbox" id="checkbox121" name="checkbox121" style="display: none;" value="palpitations">
+            <img src="https://th.bing.com/th/id/OIP.2_jJsoO7d_JxALuXxPbe5gHaEK?rs=1&pid=ImgDetMain" alt="Image 121">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox121-inner" name="checkbox121" value="palpitations">
+                <label for="checkbox121-inner">palpitations</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox122">
+            <input type="checkbox" id="checkbox122" name="checkbox122" style="display: none;" value="painful_walking">
+            <img src="https://th.bing.com/th/id/OIP.ZujIMubVBh3vllhp73nYQgAAAA?rs=1&pid=ImgDetMain" alt="Image 122">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox122-inner" name="checkbox122" value="painful_walking">
+                <label for="checkbox122-inner">painful_walking</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox123">
+            <input type="checkbox" id="checkbox123" name="checkbox123" style="display: none;"
+                value="pus_filled_pimples">
+            <img src="https://th.bing.com/th/id/OIP.AUYddCG2e5eAJpgneAcVHwHaEo?rs=1&pid=ImgDetMain" alt="Image 123">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox123-inner" name="checkbox123" value="pus_filled_pimples">
+                <label for="checkbox123-inner">pus_filled_pimples</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox124">
+            <input type="checkbox" id="checkbox124" name="checkbox124" style="display: none;" value="blackheads">
+            <img src="https://th.bing.com/th/id/OIP.hTBuvn7r0hDV7Wv6ITlDRAAAAA?rs=1&pid=ImgDetMain" alt="Image 124">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox124-inner" name="checkbox124" value="blackheads">
+                <label for="checkbox124-inner">blackheads</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox125">
+            <input type="checkbox" id="checkbox125" name="checkbox125" style="display: none;" value="scurring">
+            <img src="https://www.hairtransplantdelhi.org/upload_fdrp777/blog/banner/8da99747f46e4a43039db4755ac234b8.jpg" alt="Image 125">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox125-inner" name="checkbox125" value="scurring">
+                <label for="checkbox125-inner">scurring</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox126">
+            <input type="checkbox" id="checkbox126" name="checkbox126" style="display: none;" value="skin_peeling">
+            <img src="https://apollohealthlib.blob.core.windows.net/health-library/2022/07/Peeling-Skin.jpg" alt="Image 126">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox126-inner" name="checkbox126" value="skin_peeling">
+                <label for="checkbox126-inner">skin_peeling</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox127">
+            <input type="checkbox" id="checkbox127" name="checkbox127" style="display: none;"
+                value="silver_like_dusting">
+            <img src="https://th.bing.com/th/id/OIP.G-6ZvHidbY1nUJsx_QWBUgHaH1?rs=1&pid=ImgDetMain" alt="Image 127">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox127-inner" name="checkbox127" value="silver_like_dusting">
+                <label for="checkbox127-inner">silver_like_dusting</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox128">
+            <input type="checkbox" id="checkbox128" name="checkbox128" style="display: none;"
+                value="small_dents_in_nails">
+            <img src="https://th.bing.com/th/id/OIP.tTqJ5xwD-Ohf9wsOKZupqAHaE8?rs=1&pid=ImgDetMain" alt="Image 128">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox128-inner" name="checkbox128" value="small_dents_in_nails">
+                <label for="checkbox128-inner">small_dents_in_nails</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox129">
+            <input type="checkbox" id="checkbox129" name="checkbox129" style="display: none;"
+                value="inflammatory_nails">
+            <img src="https://www.clinicaladvisor.com/wp-content/uploads/sites/11/2021/04/Chronic-Paronychia_cropped_DO-NOT-RESUSE-2.jpg" alt="Image 129">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox129-inner" name="checkbox129" value="inflammatory_nails">
+                <label for="checkbox129-inner">inflammatory_nails</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox130">
+            <input type="checkbox" id="checkbox130" name="checkbox130" style="display: none;" value="blister">
+            <img src="https://th.bing.com/th/id/OIP.yAPsugIsA0cSVZ-RBYlCUAAAAA?rs=1&pid=ImgDetMain" alt="Image 130">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox130-inner" name="checkbox130" value="blister">
+                <label for="checkbox130-inner">blister</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox131">
+            <input type="checkbox" id="checkbox131" name="checkbox131" style="display: none;" value="blister">
+            <img src="https://th.bing.com/th/id/OIP.lQVFk0hh1bDCCB6VYpqWrwHaE7?rs=1&pid=ImgDetMain" alt="Image 131">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox131-inner" name="checkbox131" value="red_sore_around_nose">
+                <label for="checkbox131-inner">red_sore_around_nose</label>
+            </div>
+        </label>
+
+        <label class="card" for="checkbox132">
+            <input type="checkbox" id="checkbox132" name="checkbox132" style="display: none;" value="blister">
+            <img src="https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/325/325821/a-yellow-scab-on-the-a-persons-cheek-image-credit-niels-olson-2008.jpg?w=1155&h=1730" alt="Image 132">
+            <div class="checkbox-container">
+                <input type="checkbox" id="checkbox132-inner" name="checkbox132" value="yellow_crust_ooze">
+                <label for="checkbox132-inner">yellow_crust_ooze</label>
+            </div>
+        </label>
+
+    </div>
+
+    <button class="submit-button" onclick="submitForm()">Submit</button>
+
+    <script>
+        function submitForm() {
+            // Get all checked checkboxes
+            console.log("Submit button clicked");
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            const selectedOptions = [];
+
+            // Iterate through checked checkboxes and add their values to the selectedOptions array
+            checkboxes.forEach((checkbox) => {
+                selectedOptions.push(checkbox.value);
+            });
+
+            // -------------------
+            if (selectedOptions.length < 5 || selectedOptions.length > 17) {
+            alert("Please select at least 5 and at most 17 symptoms.");
+            return;
+                }
+            // -------------------
+
+            // Convert the selectedOptions array to JSON format
+            const data = JSON.stringify(selectedOptions);
+
+            // Send the selectedOptions array to your Python script using fetch API
+            fetch('http://localhost:5000/process_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: data
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                        window.location.href = '/result';
+                    } else {
+                        console.error('Error sending data');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            console.log("Data being sent:", data);
+        }
+
+        // Add event listener to each checkbox to change the background color of the label
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (event) => {
+                const label = event.target.parentElement;
+                if (event.target.checked) {
+                    label.style.backgroundColor = 'red';
+                } else {
+                    label.style.backgroundColor = 'white';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

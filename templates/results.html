@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-details {
+            margin-bottom: 30px;
+        }
+
+        .user-details h2 {
+            margin-bottom: 10px;
+        }
+
+        .user-details p {
+            margin-bottom: 5px;
+        }
+
+        .predicted-disease {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .predicted-disease h3 {
+            margin-bottom: 10px;
+        }
+
+        .predicted-disease p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CareTaker</h1>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    </header>
+    <div class="container">
+        <div class="user-details">
+            <h2>Patient Details</h2>
+            <p>Patient Name: <span id="patient-name"></span></p>
+            <p>Age: <span id="age"></span></p>
+            <p>Gender: <span id="gender"></span></p>
+            <p>Mobile No: <span id="mobile-no"></span></p>
+            <p>Email ID: <span id="email-id"></span></p>
+        </div>
+        <div class="predicted-disease">
+            <h3>Predicted Disease</h3>
+            <p id="disease-name"></p>
+            <p id="disease-description"></p>
+            <h4>Precaution</h4>
+            <p id="precaution-1"></p>
+            <p id="precaution-2"></p>
+            <p id="precaution-3"></p>
+            <p id="precaution-4"></p>
+        </div>
+    </div>
+    <script>
+        // Set the server URL to the local server URL
+        const serverUrl = 'http://127.0.0.1:5000/api/results';
+
+        async function fetchData() {
+            try {
+                const response = await fetch(serverUrl);
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function displayData(data) {
+            document.getElementById('patient-name').innerText = data.patient_name;
+            document.getElementById('age').innerText = data.age;
+            document.getElementById('gender').innerText = data.gender;
+            document.getElementById('mobile-no').innerText = data.mobile_no;
+            document.getElementById('email-id').innerText = data.email_id;
+            document.getElementById('disease-name').innerText = data.disease_name;
+            document.getElementById('disease-description').innerText = data.disease_description;
+            document.getElementById('precaution-1').innerText = data.precaution_1;
+            document.getElementById('precaution-2').innerText = data.precaution_2;
+            document.getElementById('precaution-3').innerText = data.precaution_3;
+            document.getElementById('precaution-4').innerText = data.precaution_4;
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
